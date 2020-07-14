@@ -2,9 +2,6 @@
   <img src="https://cdn.discordapp.com/attachments/557955034416152626/732587213296107520/20200714_184925_0000__01.png">
 </p>
 
-# CORONA TRACKER : Discord bot
-
-
 ![GitHub contributors](https://img.shields.io/github/contributors-anon/himanshu2406/Corona-Tracker?style=for-the-badge)
 ![GitHub top language](https://img.shields.io/github/languages/top/himanshu2406/Corona-Tracker?style=for-the-badge)
 ![GitHub issues](https://img.shields.io/github/issues/himanshu2406/Corona-Tracker?style=for-the-badge)
