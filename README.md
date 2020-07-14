@@ -1,4 +1,4 @@
-## CORONA TRACKER : Discord bot
+# CORONA TRACKER : Discord bot
 
 
 ![GitHub contributors](https://img.shields.io/github/contributors-anon/himanshu2406/Corona-Tracker?style=for-the-badge)
