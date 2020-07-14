@@ -1,7 +1,3 @@
-<p align="center">
-  <img width="460" height="300" src="https://cdn.discordapp.com/attachments/557955034416152626/732587213296107520/20200714_184925_0000__01.png">
-</p>
-
 # CORONA TRACKER : Discord bot
 
 
