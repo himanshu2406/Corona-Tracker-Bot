@@ -2,16 +2,16 @@
   <img src="https://cdn.discordapp.com/attachments/557955034416152626/732587213296107520/20200714_184925_0000__01.png">
 </p>
 
-![GitHub contributors](https://img.shields.io/github/contributors-anon/himanshu2406/Corona-Tracker?style=for-the-badge)
-![GitHub top language](https://img.shields.io/github/languages/top/himanshu2406/Corona-Tracker?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/himanshu2406/Corona-Tracker?style=for-the-badge)
-![GitHub closed issues](https://img.shields.io/github/issues-closed/himanshu2406/Corona-Tracker?style=for-the-badge)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/himanshu2406/Corona-Tracker?style=for-the-badge)
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/himanshu2406/Corona-Tracker?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors-anon/himanshu2406/Corona-Tracker-Bot?style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/himanshu2406/Corona-Tracker-Bot?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/himanshu2406/Corona-Tracker-Bot?style=for-the-badge)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/himanshu2406/Corona-Tracker-Bot?style=for-the-badge)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/himanshu2406/Corona-Tracker-Bot?style=for-the-badge)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/himanshu2406/Corona-Tracker-Bot?style=for-the-badge)
 
 ### Welcome to Corona Tracker - Discord bot - The biggest bot for live COVID 19 Ai visuals and more !
 
-![Github Total lines](https://tokei.rs/b1/github/himanshu2406/Corona-Tracker)
+![Github Total lines](https://tokei.rs/b1/github/himanshu2406/Corona-Tracker-Bot)
 
 | Information | Discord | Donate |
 |:------------|:---------|:-------|
