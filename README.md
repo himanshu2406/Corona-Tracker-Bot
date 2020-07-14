@@ -1,3 +1,7 @@
+![Logo](https://cdn.discordapp.com/attachments/557955034416152626/732587213296107520/20200714_184925_0000__01.png)
+
+<br><br>
+
 # CORONA TRACKER : Discord bot
 
 
@@ -20,16 +24,18 @@
 
 # Installation
 
-### Project
+### Discord Bot
 1. Fork and clone the git repository
 2. In the new folder you will find a `example.env` file, duplicate it and rename it to `.env` only.
 3. in the new `.env` file, change `DISCORD_TOKEN` to to your bot token
 4. Cd to the directory and `pip install -r requirements.txt`
-5. (Optional) Use Cron jobs to run `nb_og.py` for every 24h to create the resources required
-8. Run `bot.py`  
-9. You can now see the bot connected to the server
+5. Run `bot.py`  
+6. You can now see the bot connected to the server
 
-
+### Visualisation [Machine Learning] part
+1. Fork and clone the git repository
+2. Cd to the directory and `pip install -r requirements.txt`
+3. Run `python nb_og.py` and all the files should be  
 ### Support or Contact
 
 Discord: Firelogger#7717
