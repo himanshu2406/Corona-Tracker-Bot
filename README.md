@@ -32,7 +32,9 @@
 ### Visualisation [Machine Learning] part
 1. Fork and clone the git repository
 2. Cd to the directory and `pip install -r requirements.txt`
-3. Run `python nb_og.py` and all the files should be  
+3. Run `python nb_og.py` and all the files should be created in the same directory 
+#### Warning: It is resource intensive and can take 15-20 minutes to complete, it generates over 100 visuals and html files
+
 ### Support or Contact
 
 Discord: Firelogger#7717
