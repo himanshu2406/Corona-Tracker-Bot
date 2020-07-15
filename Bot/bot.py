@@ -15,8 +15,6 @@ import time
 import os
 import random
 import hashlib
-from multiprocessing import Pool
-from multiprocessing.dummy import Pool as ThreadPool
 from urllib3.exceptions import InsecureRequestWarning
 import urllib
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
@@ -25,7 +23,6 @@ import random
 import discord
 from dotenv import load_dotenv
 from discord.ext import commands
-import json
 import json
 import pickle
 import re
