@@ -2,7 +2,7 @@
   <img src="https://cdn.discordapp.com/attachments/557955034416152626/732587213296107520/20200714_184925_0000__01.png">
 </p>
 
-**invite** the bot to your own server: [click-here](https://discord.com/api/oauth2/authorize?client_id=731855425145798668&permissions=121856&scope=bot)
+### **invite** the bot to your own server: [click-here](https://discord.com/api/oauth2/authorize?client_id=731855425145798668&permissions=121856&scope=bot)
 
 ![GitHub contributors](https://img.shields.io/github/contributors-anon/himanshu2406/Corona-Tracker-Bot?style=for-the-badge)
 ![GitHub top language](https://img.shields.io/github/languages/top/himanshu2406/Corona-Tracker-Bot?style=for-the-badge)
