@@ -1,0 +1,11 @@
+discord.py
+requests
+python-dotenv
+pandas
+numpy
+matplotlib
+pycountry-convert
+folium
+scipy
+ploty.py
+keras
