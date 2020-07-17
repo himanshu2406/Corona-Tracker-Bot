@@ -11,7 +11,7 @@
 
 ### Welcome to Corona Tracker - Discord bot - The biggest bot for live COVID 19 Ai visuals and more !
 
-[![Watch the video]](https://www.youtube.com/watch?v=L6bBbsESLwc)
+![Watch the video](https://www.youtube.com/watch?v=L6bBbsESLwc)
 
 ![Github Total lines](https://tokei.rs/b1/github/himanshu2406/Corona-Tracker-Bot)
 
