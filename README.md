@@ -23,6 +23,14 @@
 
 **Join** our Discord bot now ! [here](https://discord.gg/TY5QwaV)
 
+## Usage
+
+* Invite the bot to your server using the following link: [invite](https://discord.com/api/oauth2/authorize?client_id=731855425145798668&permissions=121856&scope=bot)
+
+* The command prefix for the bot is `!cov` 
+
+* Use the `!cov help` command for further info
+
 # Installation
 
 ### Discord Bot
