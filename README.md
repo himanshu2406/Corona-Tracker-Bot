@@ -37,6 +37,10 @@
 
 * <img align="center" style="float: centrer; margin: 0 10px 0 0;" src="https://i.gyazo.com/17d6cd7d53df9c7d4b64a35299612d26.png" height="220" width="350"/>
 
+* `!cov ghelp` Help for graphical commands
+
+* <img align="center" style="float: centrer; margin: 0 10px 0 0;" src="https://i.gyazo.com/ff4dfd6008daa366f2c8f99b9d4390ba.png" height="220" width="350"/>
+
 
 
 # Installation
