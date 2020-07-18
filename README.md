@@ -37,11 +37,7 @@
 
 * <img align="center" style="float: centrer; margin: 0 10px 0 0;" src="https://i.gyazo.com/17d6cd7d53df9c7d4b64a35299612d26.png" height="220" width="350"/>
 
-* <img align="center" style="float: centrer; margin: 0 10px 0 0;" src="https://i.gyazo.com/0d7175e78a006acb189f6c900d0799ca.png" height="430" width="350"/>
 
-* `.c stat <country name>` Stats of a specific country
-
-* <img align="center" style="float: centrer; margin: 0 10px 0 0;" src="https://i.gyazo.com/45274a293bb7d422973e6b721007a440.png" height="430" width="350"/>
 
 # Installation
 
