@@ -41,6 +41,7 @@
 
 * <img align="center" style="float: centrer; margin: 0 10px 0 0;" src="https://i.gyazo.com/ff4dfd6008daa366f2c8f99b9d4390ba.png" height="220" width="350"/>
 
+* you can find dozens of other commands and features using `!cov help`
 
 
 # Installation
