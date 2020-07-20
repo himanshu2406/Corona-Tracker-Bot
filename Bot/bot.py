@@ -29,7 +29,6 @@ import re
 import textwrap
 import asyncio
 import uuid 
-import imgkit
 import urllib.request
 
 
