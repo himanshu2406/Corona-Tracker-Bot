@@ -19,14 +19,14 @@ import discord
 import cv2
 import numpy as np
 from discord.ext import commands
-import requests
+import aiohttp
 import time
 import os
 import random
 import hashlib
 from urllib3.exceptions import InsecureRequestWarning
-import urllib
-requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
+import urllib3
+urllib3.disable_warnings(category=InsecureRequestWarning)
 
 
 load_dotenv()
@@ -34,6 +34,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 client = commands.Bot(command_prefix='!cov ')
 client.remove_command('help')
 
+session = aiohttp.ClientSession()
 
 @client.command(pass_context=True)
 async def graph(ctx, typeofgraph, arg2='none'):
@@ -376,9 +377,9 @@ async def ghelp(ctx):
 @client.command(pass_context=True)
 async def country(ctx, args, complete='false'):
     found = False
-    response = requests.get(
+    response = await session.get(
         'https://disease.sh/v3/covid-19/countries?yesterday=false&sort=cases&allowNull=true')
-    x = response.text
+    x = await response.text()
     y = sorted(json.loads(x), key=lambda x: x['country'].lower())
     country_name = None
     embedVar = discord.Embed(description="Statistics from disease.sh",
@@ -429,8 +430,8 @@ async def country(ctx, args, complete='false'):
 
 @client.command(pass_context=True)
 async def all(ctx):
-    response = requests.get('https://disease.sh/v3/covid-19/all')
-    x = response.text
+    response = await session.get('https://disease.sh/v3/covid-19/all')
+    x = await response.text()
     y = json.loads(x)
     embedVar = discord.Embed(title="Covid Worldwide Stats",
                              description="Statistics from disease.sh", color=0xe33b3b, url='https://anondoser.xyz')
