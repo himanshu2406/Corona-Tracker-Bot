@@ -87,117 +87,8 @@ async def leave(ctx, id):
             await ctx.send('Failed leaving ' + str(to_leave))
         return
 
-@client.command(pass_context=True)
+@client.command(pass_context=True,aliases=['g'])
 async def graph(ctx, typeofgraph, arg2 = 'none'):
-    if typeofgraph.lower() == 'top10' and arg2 != 'none':
-        newcountry = arg2.lower() 
-        urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/top_10_countries_' + newcountry + '.png' + '?' + str(uuid.uuid4().hex[:15])
-        embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for Top 10 " + newcountry + 'Cases', color=0x00ff00)
-        embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4')
-        embedVar.set_image(url=urltobe)
-        await ctx.send(embed=embedVar)
-
-    if typeofgraph.lower() == 'country' and arg2 != 'none':
-        if arg2 == 'all':
-            urltobe = 'https://github.com/resoucesforcorona/Resources/blob/master/All_countries.png?raw=true'
-            embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for all countries", color=0x00ff00)
-            embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-            embedVar.set_image(url=urltobe)
-            await ctx.send(embed=embedVar)
-
-        else:
-            newcountry = (arg2.lower()).capitalize()
-            urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/' + newcountry + '.png' + '?' + str(uuid.uuid4().hex[:15])
-            embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for :" + newcountry, color=0x00ff00)
-            embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-            embedVar.set_image(url=urltobe)
-            await ctx.send(embed=embedVar)
-
-    if typeofgraph.lower() == 'continent' and arg2 != 'none':
-        if arg2 == 'all':
-            urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/All_continents.png'
-            embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for all continents", color=0x00ff00)
-            embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-            embedVar.set_image(url=urltobe)
-            await ctx.send(embed=embedVar)
-
-        else:
-            newcountry = (arg2.lower()).capitalize()
-            urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/' + newcountry + '.png' + '?' + str(uuid.uuid4().hex[:15])
-            embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for :" + newcountry, color=0x00ff00)
-            embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-            embedVar.set_image(url=urltobe)
-            await ctx.send(embed=embedVar)
-
-    if typeofgraph.lower() == 'pie':
-        urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/all_countrywise_pie.png'
-        embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for Pie", color=0x00ff00)
-        embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-        embedVar.set_image(url=urltobe)
-        await ctx.send(embed=embedVar)
-
-    if typeofgraph.lower() == 'predict' and arg2 != 'none':
-        newcountry = (arg2.lower())
-        urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/world_prediction_curve_' + newcountry + '.png' + '?' + str(uuid.uuid4().hex[:15])
-        embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for global prediction curve for " + newcountry, color=0x00ff00)
-        embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-        embedVar.set_image(url=urltobe)
-        await ctx.send(embed=embedVar)
-
-    if typeofgraph.lower() == 'global' and arg2 != 'none':
-        if arg2 == 'daily_confirmed':
-            urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/daily_confirmed_cases_global.png'
-            embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for global daily confirmed", color=0x00ff00)
-            embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-            embedVar.set_image(url=urltobe)
-            await ctx.send(embed=embedVar)
-
-        elif arg2 == 'daily_deaths':
-            urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/daily_deaths_cases_global.png'
-            embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for global daily deaths", color=0x00ff00)
-            embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-            embedVar.set_image(url=urltobe)
-            await ctx.send(embed=embedVar)
-
-        elif arg2 == 'trend':
-            urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/world_trend_confirmed_cases.png'
-            embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for global trend", color=0x00ff00)
-            embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-            embedVar.set_image(url=urltobe)
-            await ctx.send(embed=embedVar)
-
-        else:
-            urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/worldwide_cases_deaths.png'
-            embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for global total deaths", color=0x00ff00)
-            embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-            embedVar.set_image(url=urltobe)
-            await ctx.send(embed=embedVar)
-
-    if typeofgraph.lower() == 'trend' and arg2 != 'none':
-        if arg2 == 'confirmed':
-            urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/trend_comparison_continents_confirmed.png'
-            embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for trend comparison b/w continents [confirmed]", color=0x00ff00)
-            embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-            embedVar.set_image(url=urltobe)
-            await ctx.send(embed=embedVar)
-
-        else:
-            newcountry = (arg2.lower()).capitalize()
-            urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/trend_comparison_countries_deaths.png'
-            embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for trend comparison b/w countries [deaths]" + newcountry, color=0x00ff00)
-            embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-            embedVar.set_image(url=urltobe)
-            await ctx.send(embed=embedVar)
-
-    if typeofgraph.lower() == 'spread':
-        urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/countries_vs_date_spread.png'
-        embedVar = discord.Embed(title="Corona Tracker",url = 'https://anondoser.xyz', description="Graph for number of countries infected vs date" , color=0x00ff00)
-        embedVar.set_footer(text ="Firelogger#7717", icon_url = 'https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4') 
-        embedVar.set_image(url=urltobe)
-        await ctx.send(embed=embedVar)
-
-@client.command(pass_context=True)
-async def g(ctx, typeofgraph, arg2 = 'none'):
     if typeofgraph.lower() == 'top10' and arg2 != 'none':
         newcountry = arg2.lower() 
         urltobe = 'https://raw.githubusercontent.com/resoucesforcorona/Resources/master/top_10_countries_' + newcountry + '.png' + '?' + str(uuid.uuid4().hex[:15])
@@ -371,7 +262,7 @@ async def ghelp(ctx):
 
 
 
-@client.command(pass_context=True)
+@client.command(pass_context=True, aliases=['c'])
 async def country(ctx, args, complete='false'):
     async with aiohttp.ClientSession() as session:
         found = False
