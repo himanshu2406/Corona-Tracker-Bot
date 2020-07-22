@@ -1,4 +1,4 @@
-discord.py==1.3.3
+discord.py==1.3.4
 folium==0.11.0
 h5py==2.10.0
 Keras==2.4.3
