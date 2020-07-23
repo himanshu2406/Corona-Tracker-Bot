@@ -339,69 +339,53 @@ async def ghelp(ctx):
 
 
 @client.command(pass_context=True, aliases=['c'])
-async def country(ctx, args, complete='false'):
+async def country(ctx, args, complete='complete'):
     found = False
-    response = await api_client.all_countries()
-    y = sorted(response, key=lambda x: x.name.lower())
-    country_name = None
-    embedVar = discord.Embed(description="Statistics from disease.py",
-                                color=0xe33b3b, url='https://anondoser.xyz')
+    try:
+        i = await api_client.country(args)
+        embedVar = discord.Embed(description="Statistics from disease.py",
+                                    color=0xe33b3b, url='https://anondoser.xyz')
 
-    for i in y:
-        if (i.name.lower() >= args.lower() and i.name.lower()[0] == args.lower()[0]):
-            country_name = i.name.lower()
-            yday_c = await api_client.country(i.name, yesterday=True)
-            if complete == 'complete':
-                embedVar.add_field(name ='Updated', value= i.updated, inline=True)
-                embedVar.add_field(name ='Country', value= i.name, inline=True)
-                embedVar.add_field(name ='Cases per Million', value= i.per_million.cases, inline=True)
-                embedVar.add_field(name ='Active per Million', value= i.per_million.active, inline=True)
-                embedVar.add_field(name ='Recoveries per Million', value= i.per_million.recoveries, inline=True)
-                embedVar.add_field(name ='Tests per Million', value= i.per_million.tests, inline=True)
-                embedVar.add_field(name ='Deaths per Million', value= i.per_million.deaths, inline=True)
-                embedVar.add_field(name ='Critical per Million', value= i.per_million.critical, inline=True)
-                embedVar.add_field(name ='One Case per Person', value= i.per_people.case, inline=True)
-                embedVar.add_field(name ='One Death per Person', value= i.per_people.death, inline=True)
-                embedVar.add_field(name ='One Test per Person', value= i.per_people.test, inline=True)
-    
-                
-            cases_diff = cleaned_diff(i.cases, yday_c.cases)
-            death_diff = cleaned_diff(i.deaths, yday_c.deaths)
-            re_diff = cleaned_diff(i.recoveries, yday_c.recoveries)
-            active_diff = cleaned_diff(i.active, yday_c.active)
-            crit_diff = cleaned_diff(i.critical, yday_c.critical)
-            test_diff = cleaned_diff(i.tests, yday_c.tests)
-            embedVar.add_field(name='Cases:', value=check_na(
-                i.cases)+cases_diff, inline=True)
-            embedVar.add_field(name='Cases Today:', value=check_na(
-                i.today.cases), inline=True)
-            embedVar.add_field(name='Deaths:', value=check_na(
-                i.deaths)+death_diff, inline=True)
-            embedVar.add_field(name='Deaths Today:', value=check_na(
-                i.today.deaths), inline=True)
-            embedVar.add_field(name='Recovered:', value=check_na(
-                i.recoveries)+re_diff, inline=True)
-            embedVar.add_field(name='Recovered Today:', value=check_na(
-                i.today.recoveries), inline=True)
-            embedVar.add_field(name='Active:', value=check_na(
-                i.active)+active_diff, inline=True)
-            embedVar.add_field(name='Critical:', value=check_na(
-                i.critical)+crit_diff, inline=True)
-            embedVar.add_field(
-                name='Tests:', value=check_na(i.tests)+test_diff, inline=True)
-            urltobe = str(i.info.flag)
-            found = True
-            break
+        country_name = i.name.lower()
+        yday_c = await api_client.country(i.name, yesterday=True)
+            
+        cases_diff = cleaned_diff(i.cases, yday_c.cases)
+        death_diff = cleaned_diff(i.deaths, yday_c.deaths)
+        re_diff = cleaned_diff(i.recoveries, yday_c.recoveries)
+        active_diff = cleaned_diff(i.active, yday_c.active)
+        crit_diff = cleaned_diff(i.critical, yday_c.critical)
+        test_diff = cleaned_diff(i.tests, yday_c.tests)
 
-    if not args.isalpha() or found == False:
-        embedVar = discord.Embed(title="Invalid Country: " + args.capitalize(
-        ), description="Error, the country doesn't exist in the database", color=0xe33b3b, url='https://anondoser.xyz')
-        await ctx.send(embed=embedVar)
-    else:
+        embedVar.add_field(name='Cases:', value=check_na(i.cases)+cases_diff, inline=True)
+        embedVar.add_field(name='Cases Today:', value=check_na(i.today.cases), inline=True)
+        embedVar.add_field(name='Deaths:', value=check_na(i.deaths)+death_diff, inline=True)
+        embedVar.add_field(name='Deaths Today:', value=check_na(i.today.deaths), inline=True)
+        embedVar.add_field(name='Recovered:', value=check_na(i.recoveries)+re_diff, inline=True)
+        embedVar.add_field(name='Recovered Today:', value=check_na(i.today.recoveries), inline=True)
+        embedVar.add_field(name='Active:', value=check_na(i.active)+active_diff, inline=True)
+        embedVar.add_field(name='Critical:', value=check_na(i.critical)+crit_diff, inline=True)
+        embedVar.add_field(name='Tests:', value=check_na(i.tests)+test_diff, inline=True)
+        urltobe = str(i.info.flag)
+
+        if complete == 'complete':
+            embedVar.add_field(name ='Cases per Million', value= i.per_million.cases, inline=True)
+            embedVar.add_field(name ='Active per Million', value= i.per_million.active, inline=True)
+            embedVar.add_field(name ='Recoveries per Million', value= i.per_million.recoveries, inline=True)
+            embedVar.add_field(name ='Tests per Million', value= i.per_million.tests, inline=True)
+            embedVar.add_field(name ='Deaths per Million', value= i.per_million.deaths, inline=True)
+            embedVar.add_field(name ='Critical per Million', value= i.per_million.critical, inline=True)
+            embedVar.add_field(name ='One Case per Person', value= i.per_people.case, inline=True)
+            embedVar.add_field(name ='One Death per Person', value= i.per_people.death, inline=True)
+            embedVar.add_field(name ='One Test per Person', value= i.per_people.test, inline=True)
+            embedVar.add_field(name ='Updated', value= i.updated, inline=True)
+
         embedVar.title = "Covid Stats for: " + country_name.capitalize()
         embedVar.set_thumbnail(url=urltobe)
         embedVar.set_footer(
             text="Firelogger#7717", icon_url='https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4')
+        await ctx.send(embed=embedVar)
+    except diseaseapi.exceptions.NotFound:
+        embedVar = discord.Embed(title="Invalid Country: " + args.capitalize(), description="Error, the country doesn't exist in the database", color=0xe33b3b, url='https://anondoser.xyz')
         await ctx.send(embed=embedVar)
 
 
@@ -410,7 +394,24 @@ async def all(ctx):
     response = await api_client.all()
     embedVar = discord.Embed(title="Covid Worldwide Stats",
                                  description="Statistics from disease.py", color=0xe33b3b, url='https://anondoser.xyz')
-    embedVar.add_field(name ='Updated', value= response.updated, inline=True)
+    
+
+    yday_c = await api_client.all(yesterday=True)
+    cases_diff = cleaned_diff(response.cases, yday_c.cases)
+    death_diff = cleaned_diff(response.deaths, yday_c.deaths)
+    re_diff = cleaned_diff(response.recoveries, yday_c.recoveries)
+    active_diff = cleaned_diff(response.active, yday_c.active)
+    crit_diff = cleaned_diff(response.critical, yday_c.critical)
+    test_diff = cleaned_diff(response.tests, yday_c.tests)
+    embedVar.add_field(name='Cases:', value=check_na(response.cases)+cases_diff, inline=True)
+    embedVar.add_field(name='Cases Today:', value=check_na(response.today.cases), inline=True)
+    embedVar.add_field(name='Deaths:', value=check_na(response.deaths)+death_diff, inline=True)
+    embedVar.add_field(name='Deaths Today:', value=check_na(response.today.deaths), inline=True)
+    embedVar.add_field(name='Recovered:', value=check_na(response.recoveries)+re_diff, inline=True)
+    embedVar.add_field(name='Recovered Today:', value=check_na(response.today.recoveries), inline=True)
+    embedVar.add_field(name='Active:', value=check_na(response.active)+active_diff, inline=True)
+    embedVar.add_field(name='Critical:', value=check_na(response.critical)+crit_diff, inline=True)
+    embedVar.add_field(name='Tests:', value=check_na(response.tests)+test_diff, inline=True)
     embedVar.add_field(name ='Cases per Million', value= response.per_million.cases, inline=True)
     embedVar.add_field(name ='Active per Million', value= response.per_million.active, inline=True)
     embedVar.add_field(name ='Recoveries per Million', value= response.per_million.recoveries, inline=True)
@@ -420,35 +421,9 @@ async def all(ctx):
     embedVar.add_field(name ='One Case per Person', value= response.per_people.case, inline=True)
     embedVar.add_field(name ='One Death per Person', value= response.per_people.death, inline=True)
     embedVar.add_field(name ='One Test per Person', value= response.per_people.test, inline=True)
+    embedVar.add_field(name ='Updated', value= response.updated, inline=True)
 
-    yday_c = await api_client.all(yesterday=True)
-    cases_diff = cleaned_diff(response.cases, yday_c.cases)
-    death_diff = cleaned_diff(response.deaths, yday_c.deaths)
-    re_diff = cleaned_diff(response.recoveries, yday_c.recoveries)
-    active_diff = cleaned_diff(response.active, yday_c.active)
-    crit_diff = cleaned_diff(response.critical, yday_c.critical)
-    test_diff = cleaned_diff(response.tests, yday_c.tests)
-    embedVar.add_field(name='Cases:', value=check_na(
-        response.cases)+cases_diff, inline=True)
-    embedVar.add_field(name='Cases Today:', value=check_na(
-        response.today.cases), inline=True)
-    embedVar.add_field(name='Deaths:', value=check_na(
-        response.deaths)+death_diff, inline=True)
-    embedVar.add_field(name='Deaths Today:', value=check_na(
-        response.today.deaths), inline=True)
-    embedVar.add_field(name='Recovered:', value=check_na(
-        response.recoveries)+re_diff, inline=True)
-    embedVar.add_field(name='Recovered Today:', value=check_na(
-        response.today.recoveries), inline=True)
-    embedVar.add_field(name='Active:', value=check_na(
-        response.active)+active_diff, inline=True)
-    embedVar.add_field(name='Critical:', value=check_na(
-        response.critical)+crit_diff, inline=True)
-    embedVar.add_field(
-        name='Tests:', value=check_na(response.tests)+test_diff, inline=True)
-
-    embedVar.set_footer(text="Firelogger#7717",
-                        icon_url='https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4')
+    embedVar.set_footer(text="Firelogger#7717",icon_url='https://avatars2.githubusercontent.com/u/37951606?s=460&u=f45b1c7a7f0eddbe0036a7cf79b47d7dfa889321&v=4')
     await ctx.send(embed=embedVar)
 
 
@@ -465,36 +440,29 @@ async def on_guild_join(guild):
         if general.permissions_for(guild.me).send_messages:
             embedVar = discord.Embed(title="Corona Tracker Help Panel",
                                      description="Here's some help for you :heart:", color=0x00ff00)
-            embedVar.add_field(
-                name="!cov graph [commands]", value="Consists of graphical predictions, analysis , statistics and more see below for command", inline=False)
-            embedVar.add_field(
-                name="!cov g [commands]", value="Same as above, use !cov ghelp for list of commands", inline=False)
-            embedVar.add_field(
-                name="!cov ghelp", value="Help and commands list for `!cov graph`", inline=False)
-            embedVar.add_field(
-                name="!cov all", value="Shows global Covid-19 statistics", inline=False)
+            embedVar.add_field(name="!cov graph [commands]", value="Consists of graphical predictions, analysis , statistics and more see below for command", inline=False)
+            embedVar.add_field(name="!cov g [commands]", value="Same as above, use !cov ghelp for list of commands", inline=False)
+            embedVar.add_field(name="!cov ghelp", value="Help and commands list for `!cov graph`", inline=False)
+            embedVar.add_field(name="!cov all", value="Shows global Covid-19 statistics", inline=False)
             embedVar.add_field(name="!cov interactive", value="Sends the best live interactive maps \n See how the Covid spread on the world map from the very start \n See live status of Covid on the world map \n See Mortality Progression from the very beginning", inline=False)
             embedVar.add_field(name="!cov country {your country} {complete (optional)}",
                                value="Shows you a particular country's stats (Optional- use complete for full report of the country)", inline=False)
-            embedVar.add_field(
-                name="!cov help", value="Shows you this message", inline=False)
-            embedVar.add_field(
-                name="!cov invite", value="Sends you the links to invite the bot to your own server & the official bot server", inline=False)
-            embedVar.add_field(
-                name="github", value="https://github.com/himanshu2406/Corona-Tracker-Bot", inline=False)
-            embedVar.add_field(
-                name="tip :heart: ", value="Buy me a Coffee [sends addresses for tipping]", inline=False)
+            embedVar.add_field(name="!cov help", value="Shows you this message", inline=False)
+            embedVar.add_field(name="!cov invite", value="Sends you the links to invite the bot to your own server & the official bot server", inline=False)
+            embedVar.add_field(name="github", value="https://github.com/himanshu2406/Corona-Tracker-Bot", inline=False)
+            embedVar.add_field(name="tip :heart: ", value="Buy me a Coffee [sends addresses for tipping]", inline=False)
             embedVar.add_field(name="Dev Contact",
                                value="Firelogger#7717", inline=False)
             await general.send(embed=embedVar)
             break
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=" a !cov help in " + str(len(client.guilds)) + " server(s)"))
 
 
 @client.event
 async def on_message(message):
     # do previous on_message stuff here
     if message.guild is None and not message.author.bot:
-        dmchannel = client.get_channel(729683844999020555)
+        dmchannel = client.get_channel(731531934517297266)
         await dmchannel.send(message.author)
         await dmchannel.send(message.content)
     # add at bottom to allow commands to work
