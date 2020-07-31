@@ -8,26 +8,12 @@ Original Bot Support Server: https://discord.gg/kdj6DMr
 '''
 
 import uuid
-import urllib.request
-import asyncio
-import textwrap
-import re
-import pickle
-import json
 from dotenv import load_dotenv
 import discord
-import cv2
-import numpy as np
 from discord.ext import commands
-import time
 import os
-import random
-import hashlib
-from urllib3.exceptions import InsecureRequestWarning
-import urllib3
 import diseaseapi
 from helper_functions import *
-urllib3.disable_warnings(category=InsecureRequestWarning)
 
 
 load_dotenv()
