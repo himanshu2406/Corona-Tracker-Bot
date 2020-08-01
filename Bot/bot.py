@@ -340,7 +340,7 @@ class CovidCommands(commands.Cog):
             yday_c = await self.api_client.country(i.name, yesterday=True)
         except diseaseapi.NotFound:
             embedVar = discord.Embed(title="Invalid Country: " + args.capitalize(), description="Error, the country doesn't exist in the database", color=0xe33b3b, url='https://anondoser.xyz')
-            await ctx.send(embed=embedVar)
+            return await ctx.send(embed=embedVar)
 
         embedVar = discord.Embed(description="Statistics from disease.py",
                                     color=0xe33b3b, url='https://anondoser.xyz')
