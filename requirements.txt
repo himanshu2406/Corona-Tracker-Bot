@@ -5,7 +5,7 @@ Keras==2.4.3
 Keras-Preprocessing==1.1.2
 matplotlib==3.2.2
 numpy==1.19.0
-opencv-python==4.3.0.36
+opencv-python==4.8.1.78.36
 pandas==1.0.5
 plotly==4.8.2
 tensorflow==2.2.0
