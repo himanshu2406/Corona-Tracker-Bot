@@ -4,7 +4,7 @@ h5py==2.10.0
 Keras==2.4.3
 Keras-Preprocessing==1.1.2
 matplotlib==3.2.2
-numpy==1.19.0
+numpy==1.22.2
 opencv-python==4.3.0.36
 pandas==1.0.5
 plotly==4.8.2
@@ -12,3 +12,4 @@ tensorflow==2.2.0
 tensorflow-estimator==2.2.0
 urllib3==1.25.9
 disease.py==1.1.0
+scipy>=1.10.0rc1 # not directly required, pinned by Snyk to avoid a vulnerability
